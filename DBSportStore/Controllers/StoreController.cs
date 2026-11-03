@@ -128,7 +128,9 @@ namespace DBSportStore.Controllers
                  NamePro = p.ProductName,
                  CategoryName = p.Category.CategoryName,
                  Price = p.Price,
-                 ImagePro = p.ImageUrl
+                 ImagePro = p.ImageUrl,
+                 Description = p.Description,
+                 StockQuantity = p.StockQuantity
              })
              .ToList(),
                 // Giữ lại toàn bộ điều kiện hiện tại.

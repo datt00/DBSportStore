@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - SportStore</title> @* Tiêu đề thay đổi theo từng View *@
     @Styles.Render("~/Content/css") @* CSS mặc định của project *@
-    <link href="~/Content/sportstore.css" rel="stylesheet" /> @* CSS riêng của SportStore *@
+    <link href="@Url.Content("~/Content/sportstore.css")" rel="stylesheet" /> @* CSS riêng của SportStore *@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 @* BODY: phần giao diện hiển thị trên trình duyệt *@
@@ -39,7 +39,12 @@
                 <a href="#">Quản lý đơn hàng</a>
 
                 @* Các chức năng sẽ thực hiện ở các buổi sau *@
-                <a href="#">Giỏ hàng</a>
+                @* Giỏ hàng *@
+                @{ Html.RenderAction(
+                       "BagCart",
+                       "ShoppingCart");
+                }
+
                 <a href="#">Đăng nhập</a>
             </nav>
 

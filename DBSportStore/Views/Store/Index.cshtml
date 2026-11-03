@@ -132,7 +132,7 @@
                                 </div>
                                 @* Mô tả ngắn sản phẩm *@
                                 <div class="product-description">
-                                    @item.ShortDescription
+                                    @item.Description
                                 </div>
                                 @* Đơn giá, định dạng có dấu phân cách hàng nghìn *@
                                 <div class="product-price">
@@ -148,11 +148,21 @@
                                         new { @class = "btn-soft" }  // Giữ nguyên CSS
                                         )
 
+                                    @if (item.StockQuantity > 0)
+                                    {
+                                        @Html.ActionLink(
+                                            "Mua",
+                                            "AddToCart",
+                                            "ShoppingCart",
+                                            new { id = item.ProductID },
+                                            new { @class = "btn-brand" }
+                                        )
+                                    }
+                                    else
+                                    {
+                                        <span class="btn-soft">Hết hàng</span>
+                                    }
 
-                                    @* B07 mới thực hiện chức năng Giỏ hàng *@
-                                    <a class="btn-brand" href="#">
-                                        Mua
-                                    </a>
 
 
                                 </div>
